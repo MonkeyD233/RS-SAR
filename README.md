@@ -19,11 +19,11 @@ Every model consumes a stack of 5 consecutive range-angle frames
 - **SVNet_PKC** (`svnet_pkc.json`, 1.25M) — PeakConv with fixed guard band
 - **SVNet_AdaPKCXi** (`svnet_adapkcxi.json`, 1.25M) — metric-based adaptive guard band, pure PyTorch (FiTOS via `threshold`)
 - **SVNet_AdaPKCTheta** (`svnet_adapkctheta.json`, 1.25M) — learned guard bandwidth via BandEst
-- **SVNet_FreqPKC** (`svnet_freqpkc.json`, 1.27M) — **FreqPKC-Net**: frequency-decoupled, band-modulated guard bandwidth
 - **SVNet_MVA** (`svnet_mva.json`, 1.30M) — baseline: plain 2D conv, frames-as-channels
 - **SVNet_TMVA** (`svnet_tmva.json`, 1.20M) — baseline: 3D conv temporal backbone
 - **TARSSNet_V1** (`tarssnet_v1.json`, 2.34M) — spatial-squeeze TAM, channel attention over time
 - **TARSSNet_V2** (`tarssnet_v2.json`, 2.29M) — channel-squeeze TAM, spatial attention over time
+- **SVNet_FreqPKC** (`svnet_freqpkc.json`, 1.27M) — **FreqPKC-Net**: frequency-decoupled, band-modulated guard bandwidth
 - **DiFTNet_S_v2** (`diftnet_s_v2.json`, 2.30M) — **DiFT-Net S**: Spatio-DiFT (LSI + GDSE)
 - **DiFTNet_D_v2** (`diftnet_d_v2.json`, 2.38M) — **DiFT-Net D**: Depth-DiFT (channel-wise LSI + GDSE)
 
