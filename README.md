@@ -36,6 +36,12 @@ features into per-pixel guard-bandwidth offsets that steer the peak receptive
 field — enhancing high-frequency target details while low-passing background
 clutter.
 
+<p align="center">
+  <img src="assets/freqpkc_architecture.png" width="420" alt="Architecture of the single-view FreqPKC-Net for the RS-SAR dataset"/>
+</p>
+
+*Single-view FreqPKC-Net architecture for the RS-SAR dataset.*
+
 **DiFT-Net** addresses the implicit DC-preserving low-pass bias of multi-frame
 temporal aggregation with two cascaded frequency-domain mechanisms:
 **LSI** (Local Spectral Inversion), which recovers attenuated high-frequency
@@ -44,6 +50,30 @@ motion cues via attention-driven temporal mask inversion, and
 amplitude modulation across the full band via 1D FFT. The `_S` variant performs
 local inversion spatially; the `_D` variant performs it channel-wise. Temporal
 aggregation uses learnable weighted compression (v2.1).
+
+<p align="center">
+  <img src="assets/diftnet_sv_architecture.png" width="420" alt="Architecture of the single-view DiFT-Net variant tailored for the RS-SAR dataset"/>
+</p>
+
+*Single-view DiFT-Net$^{\textit{sv}}$ architecture tailored for the RS-SAR dataset.*
+
+## Qualitative Results
+
+Qualitative segmentation results on two RS-SAR scenes, from the FreqPKC paper
+(columns: camera, range-angle input, ground truth, PKC, AdaPKC-Xi, AdaPKC-Θ,
+FreqPKC-Net):
+
+<p align="center">
+  <img src="assets/qualitative_freqpkc.png" alt="Qualitative results of FreqPKC-Net and its baselines on two RS-SAR scenes"/>
+</p>
+
+And from the DiFT paper (columns: camera, range-angle input, ground truth,
+TMVA, PKC, TARSS-Net, AdaPKC-Θ, AdaPKC-Xi, DiFT-Net; rows are frames #327 and
+#641 of sequence `city_1_0`):
+
+<p align="center">
+  <img src="assets/qualitative_dift.png" alt="Qualitative results of DiFT-Net and its baselines on two RS-SAR scenes"/>
+</p>
 
 ## Installation
 
