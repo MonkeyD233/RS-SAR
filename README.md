@@ -16,18 +16,16 @@ Every model consumes a stack of 5 consecutive range-angle frames
 `(B, 1, 5, 288, 288)` and predicts a per-pixel mask over 3 classes
 (background, small vehicle, large vehicle).
 
-| Model | Config file | Params | Description |
-|---|---|---|---|
-| SVNet_PKC | `svnet_pkc.json` | 1.25M | PeakConv with fixed guard band |
-| SVNet_AdaPKCXi | `svnet_adapkcxi.json` | 1.25M | Metric-based adaptive guard band, pure PyTorch (FiTOS via `threshold`) |
-| SVNet_AdaPKCTheta | `svnet_adapkctheta.json` | 1.25M | Learned guard bandwidth via BandEst |
-| SVNet_FreqPKC | `svnet_freqpkc.json` | 1.27M | **FreqPKC-Net**: frequency-decoupled, band-modulated guard bandwidth |
-| SVNet_MVA | `svnet_mva.json` | 1.30M | Baseline: plain 2D conv, frames-as-channels |
-| SVNet_TMVA | `svnet_tmva.json` | 1.20M | Baseline: 3D conv temporal backbone |
-| TARSSNet_V1 | `tarssnet_v1.json` | 2.34M | Spatial-squeeze TAM, channel attention over time |
-| TARSSNet_V2 | `tarssnet_v2.json` | 2.29M | Channel-squeeze TAM, spatial attention over time |
-| DiFTNet_S_v2 | `diftnet_s_v2.json` | 2.30M | **DiFT-Net S**: Spatio-DiFT (LSI + GDSE) |
-| DiFTNet_D_v2 | `diftnet_d_v2.json` | 2.38M | **DiFT-Net D**: Depth-DiFT (channel-wise LSI + GDSE) |
+- **SVNet_PKC** (`svnet_pkc.json`, 1.25M) — PeakConv with fixed guard band
+- **SVNet_AdaPKCXi** (`svnet_adapkcxi.json`, 1.25M) — metric-based adaptive guard band, pure PyTorch (FiTOS via `threshold`)
+- **SVNet_AdaPKCTheta** (`svnet_adapkctheta.json`, 1.25M) — learned guard bandwidth via BandEst
+- **SVNet_FreqPKC** (`svnet_freqpkc.json`, 1.27M) — **FreqPKC-Net**: frequency-decoupled, band-modulated guard bandwidth
+- **SVNet_MVA** (`svnet_mva.json`, 1.30M) — baseline: plain 2D conv, frames-as-channels
+- **SVNet_TMVA** (`svnet_tmva.json`, 1.20M) — baseline: 3D conv temporal backbone
+- **TARSSNet_V1** (`tarssnet_v1.json`, 2.34M) — spatial-squeeze TAM, channel attention over time
+- **TARSSNet_V2** (`tarssnet_v2.json`, 2.29M) — channel-squeeze TAM, spatial attention over time
+- **DiFTNet_S_v2** (`diftnet_s_v2.json`, 2.30M) — **DiFT-Net S**: Spatio-DiFT (LSI + GDSE)
+- **DiFTNet_D_v2** (`diftnet_d_v2.json`, 2.38M) — **DiFT-Net D**: Depth-DiFT (channel-wise LSI + GDSE)
 
 ## Method Overview
 
@@ -104,18 +102,16 @@ state (`latest_model.pt`); `boards/` holds TensorBoard logs.
 
 Key config fields (`rs_sar/config_files/*.json`):
 
-| Field | Meaning |
-|---|---|
-| `model` | model name (must match a `MODELS` entry in `train.py`/`test.py`) |
-| `dataset` | `"RS-SAR"` |
-| `nb_input_channels` | number of stacked RA frames (5) |
-| `w_size` / `h_size` | input resolution (288×288) |
-| `custom_loss` | `ce`, `wce`, `focal`, `nbs1`, `nbs2`, `nbsfocal`, `sdice`, `gendice`, `ce_sdice`, `wce_w10sdice`, `wfocal_w<X>sdice` |
-| `norm_type` | `local` (per-batch min-max), `tvt` (global min-max), `std` (z-score) |
-| `schedular` | `cos` (cosine, `Tmax`-1) or `exp` (exponential, every `lr_step` epochs) |
-| `transformations` | `hflip,vflip` (train-only, 50% each) |
-| `threshold` | AdaPKC-Xi only: `0` = raw metric selection, `> 0` = FiTOS confidence gating |
-| `resume_path` | path to a `latest_model.pt` to resume training |
+- `model` — model name (must match a `MODELS` entry in `train.py`/`test.py`)
+- `dataset` — `"RS-SAR"`
+- `nb_input_channels` — number of stacked RA frames (5)
+- `w_size` / `h_size` — input resolution (288×288)
+- `custom_loss` — `ce`, `wce`, `focal`, `nbs1`, `nbs2`, `nbsfocal`, `sdice`, `gendice`, `ce_sdice`, `wce_w10sdice`, `wfocal_w<X>sdice`
+- `norm_type` — `local` (per-batch min-max), `tvt` (global min-max), `std` (z-score)
+- `schedular` — `cos` (cosine, `Tmax`-1) or `exp` (exponential, every `lr_step` epochs)
+- `transformations` — `hflip,vflip` (train-only, 50% each)
+- `threshold` — AdaPKC-Xi only: `0` = raw metric selection, `> 0` = FiTOS confidence gating
+- `resume_path` — path to a `latest_model.pt` to resume training
 
 ## Testing
 
