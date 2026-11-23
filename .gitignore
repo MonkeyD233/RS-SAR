@@ -1,0 +1,12 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Logs and experiment outputs
+*.log
+logs/
+
+# Packaging
+*.egg-info/
+build/
+dist/

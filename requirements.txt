@@ -1,0 +1,6 @@
+numpy==1.21.5
+Pillow==11.3.0
+scikit-image==0.20.0
+scipy==1.9.1
+tensorboard==2.11.0
+tensorboard-data-server==0.6.1
