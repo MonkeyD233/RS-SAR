@@ -184,5 +184,4 @@ This project is released under the [Apache 2.0 license](LICENSE).
 ## Acknowledgements
 
 This codebase builds on [MVRSS](https://arxiv.org/abs/2103.16214) and the
-TARSS-Net codebase. The RS-SAR dataset was collected by the Intelligent Science
-and Technology Academy of CASIC.
+TARSS-Net codebase. The RS-SAR dataset was collected by the authors.
