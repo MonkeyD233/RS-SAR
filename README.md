@@ -49,8 +49,8 @@ aggregation uses learnable weighted compression (v2.1).
 
 ## Installation
 
-The code is developed with **Python 3.9** and PyTorch 2.7.1 / CUDA 12.6
-(also verified with PyTorch 2.5.0 / CUDA 12.4).
+The code is developed and tested on **Ubuntu** with **Python 3.9** and
+PyTorch 2.7.1 / CUDA 12.6.
 
 ```bash
 # 1. Create and activate the environment
@@ -89,9 +89,6 @@ Each training sample stacks `nb_input_channels` consecutive frames; the mask is
 the annotation of the newest frame of the window. Global min/max statistics for
 TVT normalization and per-class weights are precomputed in
 `rs_sar/config_files/rs_sar_ra_stats_all.json` and `rs_sar_ra_weights.json`.
-
-> On Windows Git Bash, pass paths as `D:/...` (or set `MSYS_NO_PATHCONV=1`) so
-> that leading slashes are not rewritten.
 
 ## Training
 
