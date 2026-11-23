@@ -49,7 +49,7 @@ aggregation uses learnable weighted compression (v2.1).
 
 ## Installation
 
-The code is developed and tested on **Ubuntu** with **Python 3.9** and
+The code is developed and tested on **Linux** with **Python 3.9** and
 PyTorch 2.7.1 / CUDA 12.6.
 
 ```bash
